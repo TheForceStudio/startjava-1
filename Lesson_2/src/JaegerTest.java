@@ -1,7 +1,7 @@
 public class JaegerTest {
     public static void main(String[] args) {
-        Jaeger first = new Jaeger();
-        Jaeger second = new Jaeger();
+        Jaeger first = new Jaeger("Bracer Phoenix", "Mark-6");
+        Jaeger second = new Jaeger("Bracer Phelix", "Mark-7");
 
         /**
          * private String modelName = "Bracer Phoenix";
@@ -14,12 +14,10 @@ public class JaegerTest {
          *     private int armor = 9;
          */
 
-        first.setMark("Mark-6");
         first.setOrigin("UK");
         first.scanKaiju();
         System.out.println(first);
 
-        second.setMark("Mark-7");
         second.setArmor(40);
         second.setSpeed(1);
         System.out.println(second);

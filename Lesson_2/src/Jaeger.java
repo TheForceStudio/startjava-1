@@ -8,6 +8,13 @@ public class Jaeger {
     private int strength = 8;
     private int armor = 9;
 
+    public Jaeger() {}
+
+    public Jaeger(String modelName, String mark) {
+        this.modelName = modelName;
+        this.mark = mark;
+    }
+
     boolean drift() {
         System.out.println("Вы вошли в дрифт");
         return true;
