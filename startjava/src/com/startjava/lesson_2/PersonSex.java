@@ -1,3 +1,5 @@
+package com.startjava.lesson_2;
+
 public enum PersonSex {
     MALE,
     FEMALE;

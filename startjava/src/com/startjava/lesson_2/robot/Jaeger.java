@@ -1,3 +1,4 @@
+package com.startjava.lesson_2.robot;
 public class Jaeger {
     private String modelName = "Bracer Phoenix";
     private String mark = "Mark-5";

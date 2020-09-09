@@ -1,3 +1,4 @@
+package com.startjava.lesson_1.special;
 public class ConditionalStatement {
     static int age = 16;
     static boolean isMale = true;

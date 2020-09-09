@@ -1,3 +1,4 @@
+package com.startjava.lesson_2.game;
 import java.time.LocalDateTime;
 import java.util.InputMismatchException;
 
@@ -10,16 +11,13 @@ public class GuessNumberTest {
         System.out.println("Welcome to GuessNumber game! One of you'll be John, the second will be Mark.");
         System.out.println("I picked the number. Whoever guesses first wins");
         byte pickedNumber = random();
-//        GuessNumber.setup(player1.getName()))
+//        byte pickedNumber = 50;
 
         while (true) {
             turn++;
-            if (turn > 1) {
-                turn = 0;
-            }
             try {
-                byte inputValue = 0;
-                if (turn == 0) {
+                byte inputValue;
+                if (isFirstPlayerTurn(turn)) {
                     inputValue = GuessNumber.setup(player1.getName());
                 } else {
                     inputValue = GuessNumber.setup(player2.getName());
@@ -30,8 +28,13 @@ public class GuessNumberTest {
                 } else if (pickedNumber > inputValue) {
                     System.out.println("Wrong number. Your number is smaller then mine");
                 } else {
-                    System.out.println("You did it!");
-                    break;
+                    System.out.println("You did it! With " + turn + " tries");
+                    if (GuessNumber.shouldContinue()) {
+                        System.out.println("I was changed the number. Try to guess again");
+                        pickedNumber = random();
+                    } else {
+                        break;
+                    }
                 }
             } catch (InputMismatchException ex) {
                 System.out.println("Please use only numbers (from 0 to 100)");
@@ -47,5 +50,9 @@ public class GuessNumberTest {
         } else {
             return (byte) (now.getNano() / 10000000 + 1);
         }
+    }
+
+    private static boolean isFirstPlayerTurn(int turnNum) {
+        return turnNum % 2 != 0;
     }
 }
